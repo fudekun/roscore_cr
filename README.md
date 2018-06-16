@@ -1,7 +1,9 @@
 # rosocore_cr
 Remove Single Point Of Failer of the roscore.
 
+[![Remove Single Point Of Failer of the ROS](http://img.youtube.com/vi/t3fip33nGts/0.jpg)](http://www.youtube.com/watch?v=t3fip33nGts)
 [Remove Single Point Of Failer of the ROS](https://youtu.be/t3fip33nGts)
+
 
 ## Requirement
 ### Host
