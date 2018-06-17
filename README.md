@@ -37,6 +37,11 @@ vagrant up
     default: Which interface should the network bridge to? 
 ```
 
+  - It is also possible to specify a network interface. (Vagrantfile)
+  ```
+  config.vm.network :public_network, bridge: "en0: Wi-Fi (AirPort)"
+  ```
+
 * Need Reboot(the reason is to update the kernel.)
 ```bash
 vagrant reload
