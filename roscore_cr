@@ -4,6 +4,8 @@ interval=10
 
 echo ${ROS_DISTRO:?}
 
+docker stop roscore
+docker rm roscore
 docker run --name=roscore --net=host -d ros:${ROS_DISTRO}-ros-core roscore $@
 echo `date +"%Y-%m-%d %H:%M:%S.%3N %z"` 'roscore is start.'
 
