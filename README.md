@@ -1,22 +1,35 @@
-# rosocore_cr
+# roscore_cr
 Remove Single Point Of Failer of the roscore.
 
 [![Remove Single Point Of Failer of the ROS](http://img.youtube.com/vi/t3fip33nGts/0.jpg)](http://www.youtube.com/watch?v=t3fip33nGts)
 [Remove Single Point Of Failer of the ROS](https://youtu.be/t3fip33nGts)
 
+[Remove single point of failer of the ros(SlideShare)](https://www.slideshare.net/tatsuyafukuta1/remove-single-point-of-failer-of-the-ros)
 
 ## Requirement
 ### Host
 * VirtualBox + Vagrant  
 [Getting Started \- Vagrant by HashiCorp](https://www.vagrantup.com/intro/getting-started/index.html)
 ### Guest
-* Ubuntu 16.04.4 (Operation checked Linux ubuntu-xenial 4.13.0-43-generic #48~16.04.1-Ubuntu SMP Thu May 17 12:56:46 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux)
+* xenial(Ubuntu 16.04)
+   - Ubuntu 16.04.4 (Operation checked Linux ubuntu-xenial 4.13.0-43-generic #48~16.04.1-Ubuntu SMP Thu May 17 12:56:46 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux)
+* bionic(Ubuntu 18.04)
+   - Linux ubuntu-bionic 4.15.0-23-generic #25-Ubuntu SMP Wed May 23 18:02:16 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
 * Docker 17.09.1~ce-0~ubuntu
 
 ## Setup on virtualbox
+* Caution! The operation differs with kinetic and melodic.
+### xenial(Ubuntu16.04,ROS-kinetic)
 ```bash
-git clone https://github.com/fudekun/rosocore_cr.git
-cd rosocore_cr
+git clone https://github.com/fudekun/roscore_cr.git
+cd roscore_cr/xenial-kinetic
+vagrant up
+```
+
+### bionic(Ubuntu18.04,ROS-melodic)
+```bash
+git clone https://github.com/fudekun/roscore_cr.git
+cd roscore_cr/bionic-melodic
 vagrant up
 ```
 
@@ -42,6 +55,8 @@ vagrant up
   config.vm.network :public_network, bridge: "en0: Wi-Fi (AirPort)"
   ```
 
+### Only xenial(Ubuntu16.04,ROS-kinetic)
+* Caution! The operation differs with kinetic and melodic.
 * Need Reboot(the reason is to update the kernel.)
 ```bash
 vagrant reload
@@ -65,8 +80,10 @@ exit
 ```
 
 ## Run
+* Caution! The operation differs with kinetic and melodic.
 * If you use a different ROS distribution, please change the environment variable "ROS_DISTRO".
 * It takes time to download the image at the first startup.
+### xenial(Ubuntu16.04,ROS-kinetic)
 ```bash
 # Host
 vagrant ssh
@@ -75,8 +92,18 @@ export ROS_DISTRO=kinetic
 ~/roscore_cr/roscore_cr {option of roscore}
 ```
 
+### bionic(Ubuntu18.04,ROS-melodic)
+```bash
+# Host
+vagrant ssh
+# Guest
+export ROS_DISTRO=melodic
+~/roscore_cr/roscore_cr {option of roscore}
+```
+
+
 ---
-## Setup detail
+## Setup detail(Ubuntu16.04,kinetic)
 ### Kernel
 ```bash
 sudo apt-get update
